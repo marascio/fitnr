@@ -1,8 +1,9 @@
 Fixed in the Next Release
 =========================
 
-This is the entire Fixed in the Next Release (FITNR) website. It contains all
-of the content and code to generate the static website.
+This is the entire [Fixed in the Next Release](http://fitnr.com) (FITNR)
+website. It contains all of the content and code to generate the static
+website.
 
 Copyright
 =========
