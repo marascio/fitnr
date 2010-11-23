@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+"http://www.w3.org/TR/html4/strict.dtd"> 
+
+<html> 
+<head> 
+  {% if title %}
+  <title>Fixed in the Next Release - {{ title }} </title>
+  {% else %}
+  <title>Fixed in the Next Release - Personal Site of Louis Marascio</title> 
+  {% endif %}
+
+  <link rel="stylesheet" type="text/css" 
+        href="http://yui.yahooapis.com/2.5.2/build/reset-fonts-grids/reset-fonts-grids.css" />
+
+  <link rel="stylesheet" type="text/css" href="/styles/fitnr.css" />
+  <!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="styles/fitnr-ie.css" />
+  <![endif]-->
+
+  <link href="http://feeds.feedburner.com/FixedInTheNextRelease"
+        rel="alternate" type="application/rss+xml" title="FITNR Sidewide RSS Feed"/>
+
+  <link rel="openid.server" href="http://openid.claimid.com/server" />
+  <link rel="openid.delegate" href="http://openid.claimid.com/marascio" />
+
+  <script type="text/javascript" src="http://w.sharethis.com/widget/?tabs=web%2Cpost%2Cemail&amp;charset=utf-8&amp;style=default&amp;publisher=ff0f6a5b-cb9e-41dc-91e3-e1ed3c343cec&amp;popup=true"></script>
+</head> 
+
+<body>
+<div id="doc2">
+
+{% include 'header.tmpl' %}
+
+<!-- Main Body -->
+<div id="bd">
+  <div class="yui-gc">
+    <div id="mainpanel" class="yui-u first">
+
+      {% block mainpanel %}
+      {% endblock %}
+
+    </div> <!-- end mainpanel -->
+
+    {% include 'sidepanel.tmpl' %}
+
+  </div> 
+</div> <!-- end bd -->
+
+{% include 'footer.tmpl' %}
+
+</div> <!-- end doc2 -->
+
+{% include 'googleanalytics.tmpl' %}
+
+</body>
+</html>

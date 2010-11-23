@@ -1,0 +1,300 @@
+/*
+ * Fixed in the Next Release Styles
+ * $Id$
+ */
+ 
+html {
+    background: #fafafa;
+}
+
+body {
+    font-family: "Trebuchet MS", Verdana;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.right {
+    text-align: right;
+}
+
+.left {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}
+
+div#hd {
+    width: 100%;
+}
+
+div#hd .logo {
+    line-height: 1.6em;
+    color: #000;
+}
+
+div#hd .logo a {
+    text-decoration: none;
+    color: #000;
+}
+
+div#hd .logo a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+div#hd h1 {
+    font-size: 197%;
+    font-weight: bold;
+}
+
+div#hd h2 {
+    font-size: 108%;
+    font-weight: bold;
+}
+
+div#hd .navigation {
+    margin-top: 5px;
+    background-color: #d0d0d0;
+    padding-right: 15px;    
+    text-align: right;
+}
+
+div#hd .navigation strong {
+    text-decoration: none;
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+    font-size: 123.1%;
+    padding-left: 2px;
+    padding-right: 2px;
+    border-top-style: solid;
+    border-top-color: #d0d0d0;
+    border-top-width: 3px;
+    border-bottom: 1px solid #fff;
+}
+
+div#hd .navigation a {
+    text-decoration: none;
+    color: #333366;
+    font-weight: bold;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+div#hd .navigation a:hover {
+    text-decoration: none;
+    background-color: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+div#hd .navigation ol li {
+    display: inline;
+    padding-left: 20px;
+}
+
+div#hd .subnav {
+    padding-top: 8px;
+    background-color: #fff;
+    padding-right: 15px;
+    padding-left: 15px;
+    border: 2px solid #d0d0d0;
+    border-top: none;
+    border-bottom: none;lhe
+}
+
+div#hd .subnav a.feedlink {
+    border-bottom: none;
+    margin-left: 0px;
+}
+
+div#hd .subnav a.feedlink:hover {
+    border-bottom: none;
+}
+
+div#hd .subnav a {
+    color: #333366;
+    text-decoration: none;
+    border-bottom: 1px dotted #333366;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+div#hd .subnav a:hover {
+    text-decoration: none;
+    border-bottom: 1px solid #333366;
+}
+
+div#hd .subnav ol li {
+    display: inline;
+}
+
+div#hd .subnav img.feed {
+    margin-bottom: -2px;
+}
+
+div#hd .subnav strong {
+    color: #000;
+    background-color: #d0d0d0;
+    font-weight: bold;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+div#bd {
+    background-color: #fff;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    border: 2px solid #d0d0d0;
+    border-top: none;
+}
+
+div#bd strong {
+    font-weight: bold;
+}
+
+div#bd h1 {
+    font-size: 146.5%;
+    font-weight: bold;
+    color: #663333;
+}
+
+div#bd .pubdate {
+    font-size: 85%;
+    color: #aaa;
+    padding-top: 0.2em;
+    padding-bottom: 1em;
+}
+
+div#bd .blogitem {
+    padding-right: 5px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+div#bd .blogitem.last {
+    border-bottom: none;
+    padding-right: 5px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+div#bd p {
+    text-align: justify;
+    padding-bottom: 0.6em;
+    line-height: 1.4em;
+}
+
+div#bd a {
+    color: #006400;
+    text-decoration: none;
+    border-bottom: 1px dotted #006400;
+}
+
+div#bd a:hover {
+    text-decoration: none;
+    border-bottom: 1px solid #006400;
+}
+
+div#bd hr {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+}
+
+div#bd .bloglinks {
+    font-size: 85%;
+}
+
+div#bd .bloglinks ol {
+    display: inline;
+}
+
+div#bd .bloglinks ol li {
+    display: inline;
+}
+
+div#bd .bloglinks .right ol li {
+    padding-left: 5px;
+}
+
+div#bd .bloglinks .right ol li img {
+    margin-bottom: -2px;
+}
+
+div#bd .bloglinks .left {
+    padding-top: 3px;
+}
+
+div#bd #mainpanel p {
+    font-size: 108%;
+    line-height: 1.5em;
+}
+
+div#bd #sidepanel p {
+    padding-top: 5px;
+    padding-bottom: 0px;
+}
+
+div#bd #sidepanel .panelcontent h1 {
+    color: #555;
+    font-size: 123.1%;  
+}
+
+div#bd #sidepanel .panelcontent {
+    color: #555;
+    margin-bottom: 4px;
+    background-color: #e9f0ff;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+div#bd #sidepanel .panelcontent ol li {
+    display: inline;
+}
+
+div#bd #sidepanel .panelcontent ol li img {
+    margin-bottom: -2px;
+}
+
+div#bd #sidepanel .panelcontent a.feedlink {
+    border-bottom: none;
+    margin-left: 0px;
+}
+
+div#bd #sidepanel .panelcontent a.feedlink:hover {
+    border-bottom: none;
+}
+
+div#bd #sidepanel .panelcontent form {
+    margin-top: 8px;
+}
+
+div#bd #sidepanel .panelcontent #discuss-email {
+    width: 150px;
+    margin-right: 5px;
+}
+
+div#ft {
+    color: #aaa;
+    margin-top: 10px;
+    font-size: 77%;
+    line-height: 16px;
+}
+
+div#ft a {
+    text-decoration: underline;
+    color: #aaa;
+}
+
+div#ft a img {
+    float: left;
+    margin-right: 10px;
+}
+

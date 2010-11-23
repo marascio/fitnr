@@ -1,0 +1,94 @@
+title     : Holy Q Batman!
+tags      : markets, quant, finance
+created   : Tue, 01 Jul 2008 14:40:30 -0500
+published : Tue, 01 Jul 2008 17:04:25 -0500
+revised   : 
+
+One of my hobbies is looking at financial markets. [Market
+microstructure](http://en.wikipedia.org/wiki/Market_microstructure)[^micro]
+is fascinating, especially when you take a deep look at not only how the
+markets function (price discovery, information propagation, etc.), but
+also the various types of market participants and their motivations and
+expectations. Needless to say, investigating markets and the associated
+reams of time series data produced by them allows me to exercise
+particular muscle groups in my brain that don't get used every day. It's
+fun, and just like when you hit the gym after a three month break to
+work out those [deltoids](http://en.wikipedia.org/wiki/Deltoid_muscle),
+it usually hurts a lot afterwards!
+
+[Quantitative
+analysis](http://en.wikipedia.org/wiki/Quantitative_analyst) involves
+the study of time series data and their statistical characteristics.
+It's an interesting field with equally interesting tools. Some people
+never leave Excel while others use
+[Matlab](http://www.mathworks.com/industries/finance/) or other
+[commercial](http://www.insightful.com/products/splus/default.asp) and
+[open source tools](http://www.r-project.org/). Every once in a while,
+you run across tools and languages that just blow your mind. Enter kdb+
+and the Q language from [Kx Systems](http://www.kx.com/).
+
+Part database and part programming language,
+[kdb+](http://www.kx.com/developers/faq.php) is one of those dirty
+little secrets in the financial world that tend to stay hidden from
+public view. It is used by financial services companies as the basis for
+some of their important trading and analytical systems. The really mind
+blowing part, in my opinion, is not the database itself, but the
+language you use to control, configure, and program it:
+[Q](http://www.kx.com/q/d/primer.htm). For example, the definitive book
+on kdb+ and the Q language is called [Q for
+Mortals](https://code.kx.com/trac/wiki/QforMortals2/contents)[^codekxcom].
+Here, look at this piece of code and you can see why[^qformortals-code]:
+
+    sample:{ 
+      t:("DSF"; enlist ",") 0: `:c:/q/data/px.csv;
+      tmpx:select mpx:max Price by Date,Sym from t;
+      h:hopen `:aerowing:5042;
+      rtmpx:h "select mpx:max Price by Date,Sym from tpx";
+      hclose h;
+      .[`:c:/q/data/tpx.dat; (); ,; rtmpx,tmpx]
+    }
+
+Holy Quantitative Analyst, Batman! That is some hardcore code right
+there. Even more interesting is how the functionality of this code
+snippet is described in the book (slightly edited):
+
+> The [previous] program reads a csv file of time-stamped symbols and
+> prices, places the data into a table and computes the maximum price
+> for each day. It then opens a socket connection to a q process on
+> another machine and retrieves a similar daily aggregate. Finally, it
+> merges the two intermediate tables and appends the result to an
+> existing file.
+
+Wow. Any language that makes use of non-paired back ticks has got to be
+cool, right? From what I can surmise, engineers who understand kdb+ and
+Q are in high demand by the financial services industry. I suppose if
+you understand how to use such a seemingly powerful tool then you can
+almost set your own price.
+
+Very cool indeed, but I don't think my brain will allow me to learn such
+an obscure language. I've always been terrible at those [obfuscated
+C](http://www0.us.ioccc.org/) contests. The only reason I found kdb+ was
+that Kx Systems recently released an individual license, allowing mere
+mortals like myself to download the software, try it out, and eventually
+realize that we're not worthy.
+
+Alright, everyone together now: Thaaannnks Kx Systems!
+
+[^micro]:
+    If you're interested in market microstructure I strongly recommend
+    [Professor Larry Harris'](http://www.larryharris.com/) book
+    [Trading and Exchanges: Market Microstructure for
+    Practioners](http://tradingandexchanges.com/).
+
+[^codekxcom]:
+    The book is hosted at Kx Systems' online wiki. To access the site
+    with read only permissions use the user name 'anonymous' and password
+    'anonymous', as outlined on the [code.kx.com](http://code.kx.com)
+    landing page.
+
+[^qformortals-code]:
+    This code and the description of its functionality is from the Q for
+    Mortals book, 2nd edition. Specifically the
+    [Overview](https://code.kx.com/trac/wiki/QforMortals2/overview#Sample-Q-Program)
+    section.
+

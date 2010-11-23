@@ -1,0 +1,19 @@
+div#hd .subnav div {
+    padding-bottom: 2px;
+}
+
+div#bd .bloglinks div {
+    padding-bottom: 2px;
+}
+
+div#bd #sidepanel .panelcontent #discuss-email {
+    height: 18px;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-right: 2px;
+}
+
+div#bd #sidepanel .panelcontent #discuss-submit {
+    width: 108px;
+    height: 23px;
+}

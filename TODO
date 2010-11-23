@@ -1,0 +1,34 @@
+# vim: set ft=mkd ts=4 sw=4 sts=4 expandtab :
+#
+# $Id: TODO 242 2008-07-10 19:15:11Z louis $
+
+* Add social links.
+
+* Add archive index page. This page should provide an ordered list, by
+  publish date, of the posts. The major grouping is by year.
+
+* Render tags and add tag index pages. A tag index page is a list of all
+  tags and subsequent lists of all posts with that tag, ordered by date.
+  Each post link should point to the archive entry for that post.
+
+* Add search using Google.
+
+* Add delicious link roll.
+
+* Add a contact me link.
+
+* Debug IE6 sidebar issue.
+
+Done
+====
+* (2008/07/09) Generate archive index and archive entries for each post.
+  Should be of the form:
+
+    archives/<year>/<month>/<title>.html
+
+* (2008/07/09) Add intersite links. I should able to put something like
+  this as the destination for a link, and it should be fixed up for me:
+
+    $some-post -> archives/<year>/<month>/some-post.html
+
+

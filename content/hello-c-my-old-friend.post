@@ -1,0 +1,136 @@
+title     : Hello C, My Old Friend!
+tags      : programming
+created   : Mon, 07 Jul 2008 12:37:37 -0500
+published : Wed, 09 Jul 2008 14:18:43 -0500 
+revised   :
+
+Recently I needed to parse a large [ASCII flat
+file](http://en.wikipedia.org/wiki/Flat_file). The files are generally
+about 230 MB large with about 1.1 million records each, but there are
+some that are as large as 1 GB. To do the heavy lifting I decided to use
+C, something I've not done in a very, very long time.  Before I go on,
+let me share with you a little bit of history.
+
+In my recent professional life (say, the past seven years or so) I have
+mostly been writing C# code. At Metreos and now at Cisco the product
+that I build is actually constructed of components written in C#, Java,
+and C++, but the majority is C#. C# is a nice language; it's very
+productive and has a very clean syntax, and I enjoy using it to build
+software. Unfortunately, deep down inside my nerdy heart there is
+something missing. You see, I started programming by writing C code and
+it's always been something I enjoyed doing.
+
+Many moons ago, when I got my first computer and wanted to program, I
+convinced my Dad to buy me a C book and compiler. Unlike many other
+people I didn't start with BASIC or other "beginner" languages. Instead,
+I went straight into the dark woods of C-land, and I had a blast. Of
+course, being a first class dork, one of the first things I programmed
+was a terribly lame adventure game:
+
+    > n
+    You go north.
+    You're standing in a musty, underlit room with only one exit.
+    The only thing you see are other nerds.
+
+I eventually migrated to C++, then Java, and finally C#. [As I've said
+before]($holy-q-batman), I like just about every programming language as
+long as my limited brain can grok what's required to use it. Thus, I
+have very, very little religion when it comes to programming languages.
+Some people deride anything that isn't their favorite. C, C#, Java, C++,
+Ruby, and Python all have their fair share of bigots. I have better
+things to do with my energy than to hate other perfectly good languages.
+Yes, I'm of the "can't the nerds of the world just get along" camp. Of
+course, there is only [one true editor](http://www.vim.org), [all
+others](http://www.gnu.org/software/emacs/) are simply inferior.
+
+Anyway, I think our progression through programming languages is
+interesting. Most of the folks that I work with have progressed
+similarly through languages. Many of them stopped at Java, some went to
+C#, and others have found nirvana with Ruby or Python. Something that I
+think is amazing is how many refuse to go back. It's so common these
+days to talk to programmers who have found their last resting spot with
+C# or Ruby, and when asked, simply refuse to consider using a language
+they've already "moved on" from, or at the very least, would only
+begrudgingly do so.
+
+As software developers, and ultimately, engineers, why do we get
+religion so fast when we find a solution to a specific problem. All
+problems are different, and thus should be subjectively evaluated based
+on their attributes within a specific business context. "Huh?", you say?
+Here's what I mean, please follow along:
+
+1. All problems are unique across multiple facets. A typical set of
+   facets might be: time to solve, required performance, resources
+   available, and solution criticality. A collection of these attributes
+   make up the problem and it's container, the business context.  
+
+2. The tools (read: programming language and related tool chain) that we
+   choose to solve given problems should be chosen within a decision
+   making framework constructed from the problem's facets.
+
+Ultimately you, the engineer and, potentially, your team, are asked to
+make technical decisions based on a critical review of the problem. Your
+business leaders and teammates trust you to make these value judgements
+in an agnostic way. Unfortunately, more times than not, engineers choose
+the tools they are most comfortable with to solve the problem, without
+critical examination of the others available to them. Of course,
+comfort, or more specifically, familiarity, is a valid criteria to
+consider when making tool chain decisions, but it should be weighed
+appropriately within the business context at hand.
+
+For example, consider the following two scenarios where you are asked to
+build a parser for an ASCII flat file:
+
+1. You must do it by the end of the day. The file needs to be parsed and
+   its records placed into a database where they will be retrieved at
+   will. The program will only be rarely used, and the difference
+   between a 1 hour run time and a 10 minute run time has little impact
+   on the business.
+
+2. You must do it as fast as you can, without sacrificing quality. The
+   file needs to be parsed and its records placed into a database where
+   they will be retrieved at will. The program will be used daily, and
+   the difference between a 1 hour run time and a 10 minute run time has
+   a measurable business impact.
+
+Ask yourself, what language would you use? Why did you pick that
+language? Did you even consider programming languages you haven't used
+in recent work? I've worked with people in the past who will immediately
+say Java, or Python, or SomeOtherProgrammingLanguage without any
+discussion as to the alternatives. Heck, I don't know about you, but I
+have to force myself to not provide implicit weighting to my personal
+biases.
+
+So, anyway, like I said, recently I needed to parse an ASCII flat file.
+The files are about 230 MB large with 1.1 million records each, but
+there are some that are as large as 1 GB and 5 million records. To do
+the heavy lifting I chose C. This is why:
+
+* This is a hobby, so the business context was simple: learning and fun.
+
+* I wanted the program to be as fast and efficient as possible. Ideally,
+  it should take no longer than 15 seconds to completely parse the
+  largest of the available files.
+
+* I may have several thousand of these files, so the different in run
+  time between one minute and 15 seconds has a direct impact on my
+  personal hobby productivity.
+
+* The entire data set for a single file needs to be stored in memory.
+  This means I need to be careful about how I read the file. My program
+  uses [memory mapped
+  files](http://en.wikipedia.org/wiki/Memory-mapped_file).
+
+I haven't done a benchmark to know how fast I could have parsed these
+files using Java or C#, but I do know that I'm generally going as fast
+as I can reasonably expect to go with my current implementation. My
+business context didn't provide time for micro-benchmarking. Had it, I
+might have written a few benchmarks prior to picking my language.
+
+The examples I provided here are simplistic. The decisions we're asked
+to make as software developers in our professional lives are inherently
+more complex with significantly more ambiguity. It's our duty as
+professional programmers to make these decisions with no technology
+religion to ensure our value judgements satisfy the needs of the
+business and not simply our desire as programmers to avoid the unknown.
+

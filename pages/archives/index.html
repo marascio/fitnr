@@ -1,0 +1,35 @@
+{% extends 'main.tmpl' %}
+
+{% block mainpanel %}
+  <h1>Archives</h2>
+
+  {% for post in posts %}
+  <div class="blogitem {% if loop.last %} last {% endif %}">
+    <h1>{{ post.title }}</h1>
+
+    <div class="pubdate">
+      Published on {{ post.published }}
+      {% if post.revised %}
+      , Revised on {{ post.revised }}
+      {% endif %}
+    </div>
+
+    {{ post.body|markdown }}
+
+    <div class="bloglinks yui-gc">
+      <div class="left yui-u first">
+
+        {% if tags %}
+        Tags:
+        <ol>
+          {% for tag in tags %}
+          <li><a href=".">{{ tag }}</a>{% if not loop.last %},{% endif %}</li>
+          {% endfor %}
+        </ol>
+        {% endif %}
+
+      </div> 
+    </div>
+  </div>
+  {% endfor %}
+{% endblock %}

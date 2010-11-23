@@ -1,0 +1,144 @@
+title     : How Tall is Your Ladder? Premature Optimization or Prudent
+            Foundation?
+tags      : programming
+created   : Thu, 10 Jul 2008 22:31:01 -0500
+published : Mon, 14 Jul 2008 20:55:31 -0500
+revised   :
+
+Premature optimization: it's the hater-programmer's[^hater-programmer]
+trump card. These days it seems everywhere I look I see these folks
+yelling, "Stop, you're optimizing prematurely! Thou shalt perish in
+programmer hell!" To this I always want to respond, "What exactly is
+premature optimization, and why do you think I'm doing it?"
+
+It's funny, really. In the past six months I've heard premature
+optimization thrown about as a reason not to do something at least seven
+times. So often has it been used, in such dubious circumstances, that
+I've come to realize that the original intent behind this nugget of
+wisdom has been warped and skewed by hater-programmers with dubious
+intentions.
+
+[According][wikipedia] to the ever growing awareness, Wikipedia, Donald
+Knuth stated the following in the article "Structured Programming with
+go to Statements" in the ACM Journal Computing Surveys:
+
+> We should forget about small efficiencies, say about 97% of the time:
+> premature optimization is the root of all evil.
+
+The article on Wikipedia goes on to say:
+
+>"Premature optimization" is a phrase used to describe a situation where
+>a programmer lets performance considerations affect the design of a
+>piece of code. This can result in a design that is not as clean as it
+>could have been or code that is incorrect, because the code is
+>complicated by the optimization and the programmer is distracted by
+>optimizing.
+
+This I completely agree with. Premature optimization is, essentially, a
+way to say that programmers would rather fiddle bits than confront the
+design of their software critically. I'd even provide an alternate,
+perhaps more accurate description: premature optimization is
+optimization without profiling. In other words, you're optimizing
+without pinpointing the problem and without the ability to measure the
+results; however, this doesn't mean you have to make simplistic choices
+when faced with a lack of data.
+
+In my opinion[^opinion] this is one of the most commonly misused
+tenants of computer science today. So often is "premature optimization"
+used as an argument against proposed solutions, that I have begun to
+seriously question the rationale and motives behind most people who
+propose it as a counter-argument in technical debates. I simply think it
+is grossly mis-applied. Even more annoying is when people actually
+suggest that *language choice* is a premature optimization.
+
+Let me provide a metaphor. Suppose you were asked to fetch a ladder for
+your friend. Now, you're into ladders. Ladders are *definitely* your
+thing. You have three [ladders](http://en.wikipedia.org/wiki/Ladder),
+each a different size: a step ladder, a [fixed
+ladder](http://en.wikipedia.org/wiki/Fixed_ladder), and an extension
+ladder. Each one has its intended uses, and each one has explicit
+weaknesses. Which one do you take? You can only pick one.
+
+If you're a premature-optimization-acolyte you pick the step ladder.
+Why? Well anything else would simply be overcomplicating the situation
+without sufficient reason not to. The step ladder is small, easy to
+transport, and most importantly, sort of cute. 
+
+Me? Well, I'm no acolyte. Here is how I see it.
+
+The step ladder is basically useless. It fills a very specific need, but
+is not adaptable beyond that need. It's useful in that you can reach
+items slightly above your head, but its primary utility comes from the
+fact that the step ladder itself can neatly be tucked away, forgotten,
+behind some counter or under a bed somewhere.  Height, my friend, is
+*not* its strength.
+
+So, is it the fixed ladder or the extension ladder? Well, that's easy
+depending on the answer to the following question: is the fixed ladder
+of the over-the-top, uber-[Little Giant](http://www.ladders.com)
+variety? If yes, then pick the fixed ladder and move on. If no, then the
+extension ladder is my choice.
+
+Did you hear that? That was several thousand hater-programmers around
+the world gasping all at once. This is what they're saying and thinking:
+"You've just prematurely optimized the solution. There was no data to
+prove that you needed a ladder that could extend to 42 feet." Bah!
+
+Humans, especially programmers, like to latch on to things we believe we
+understand. This precept of truth from Dr. Knuth is one of those things.
+Premature optimization *is* bad, but inappropriate application of the
+precept of premature optimization is, IMO, much worse. Why? It
+suppresses good ideas and creative thinking. 
+
+The ladder example provided above is straightforward. A ladder is about
+height. When asked to choose a ladder without sufficient data as to the
+height of the area to be reached pick a ladder that provides, in this
+order, the most flexibility and the most height. If the ladder is a
+Little Giant then pick it, that thing is amazing, 24 ladders in one!
+Otherwise, pick the ladder that provides the most height, they can
+almost always be positioned to reach a lower point, but can very, very
+rarely (at least safely) be positioned to reach a point above the
+maximum height of the ladder plus the height of the individual.
+
+How does this apply to software? Well, more often than not, technology,
+tool, or design choices are changed because the argument against
+premature optimization is used to argue against what was simply a
+decision to favor flexibility, or as I call it, a Prudent Foundation.
+
+Prudent foundations are simple. Given everything you know about a
+problem, pick something that your gut says is flexible and good enough,
+but nothing more. Be concious of sacrificing flexibility, that's how we
+get out of binds later on. The biggest risk we face as engineers is the
+risk of the unknown. Picking a prudent foundation, or a solution that
+minimizes the risk of the unknown, is the best we can do given the
+circumstances we are faced with.
+
+Let's examine the most egregious misapplication of premature
+optimization. As I stated earlier I believe this to be language choice.
+Choosing a programming language is almost never a premature
+optimization. Language choice is about many other things, but mostly
+it's about picking the right tool for the job given the problem's
+business context.  Optimization, premature or otherwise, plays very
+little role here. The problem and business context define the criteria
+under which you should consider your decision.
+
+Picking a prudent foundation is not premature optimization, even if
+10,000 hater-programmers believe it be at first glance. Usually, the
+premature optimization crowd are speaking from a position of comfort. It
+is premature optimization if it uses anything they aren't: (a) familiar
+with, or (b) comfortable with (no, these are not the same thing).
+
+As engineers, one of the most important things we should be doing is
+discovering and promoting the prudent foundation for the problems we are
+faced with by making sound technology decisions.
+
+[^hater-programmer]:
+    We all know them. These are the people who argue viewpoints based on
+    religion. They are usually arguing against pragmatic solutions and
+    are most commonly found aligned with the forces of evil.
+
+[^opinion]:
+    That's right, I get to provide my own, personal, humble, opinions on
+    my very own website. Go figure.
+
+[wikipedia]: http://en.wikipedia.org/wiki/Optimization_(computer_science)

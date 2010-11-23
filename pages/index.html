@@ -1,0 +1,10 @@
+{% extends 'main.tmpl' %}
+{% import 'blogpost.tmpl' as blog %}
+
+{% block mainpanel %}
+  {% for post in published %}
+
+  {{ blog.blogitem(post, loop.last, published) }}
+
+  {% endfor %}
+{% endblock %}

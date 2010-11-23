@@ -1,0 +1,29 @@
+{% macro blogitem(post, last, published) %}
+
+  <div class="blogitem {% if last %} last {% endif %}">
+    <h1><a href="{{ post.relative_url }}">{{ post.title }}</a></h1>
+
+    <div id="subtitle" class="pubdate">
+      Published on {{ post.published|friendly_datetime }}
+      {% if post.revised %}
+        , Revised on {{ post.revised|friendly_datetime }}
+      {% endif %}
+    </div>
+
+    {{ post.body|internal_links(published, true)|markdown }}
+
+    <div class="bloglinks left">
+      Tags:
+      {% if post.tags %}
+          {% for tag in post.get_tags() %}
+            <!--
+            <a href="/tags/{{ tag }}/">{{ tag|replace("-"," ") }}</a>{% if not loop.last %}, {% endif %}
+            -->
+            {{ tag|replace("-"," ") }}</a>{% if not loop.last %}, {% endif %}
+          {% endfor %}
+      {% else %}
+        none
+      {% endif %}
+    </div> <!-- bloglinks -->
+  </div> <!-- blogitem -->
+{% endmacro %}

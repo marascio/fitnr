@@ -1,0 +1,190 @@
+title     : Why Do I Always Have to be Different? 
+tags      : fitnr, tool chain
+created   : Thu, 27 May 2008 12:00:00 -0500
+published : Mon, 30 Jun 2008 22:30:00 -0500
+revised   : 
+
+I like to use my personal projects as opportunities to learn about new
+things. Sometimes I explicitly try to reinvent the wheel -- after all,
+this is *my* time to learn how to make a useful round object. I dedicate
+a certain amount of time every week to this type of tinkering, and the
+tool chain used to build this website is a result of such activity.
+
+One day I'll spend some time explaining why I think tinkering is so
+important, but to summarize it quickly, tinkering is about becoming and
+staying a well rounded programmer[^tinkering] by gaining different
+perspectives on technology not encountered in your typical professional
+life.
+
+My goal for the FITNR website is simple: I want to build a place on the
+web that I can share some of my thoughts, but I want to do it my way --
+more on this later. The very reason why I don't use tools like
+[Wordpress](http://wordpress.org/) is because launching this website is
+an opportunity for me to learn -- consistent with the philosophy
+described above.
+
+To further complicate things, I don't want to rely on any dynamic server
+side code. I want something that is static on the server -- partly
+driven from my desire not to add to my already too large personal
+systems administration workload and partly as an experiment. Under this
+rule all interactivity needs to come from Javascript as executed by the
+client-side browser. [Mashups][mashups] are all the rave these days, and
+I'd like to explore that world a little bit.
+
+The manner in which I edit, build, and publish Fixed in the Next Release
+is partly an experiment in building a publishing system around my
+favorite tools and partly an exploration of how interesting a website
+one can build without relying on a server side component. Quite simply,
+can I make the mashup-potatoes taste good enough -- is it possible,
+without all that lovely server side[^server-side] butter? This is just
+one big opportunity to tinker.
+
+To summarize, here are my requirements:
+
+1. No dynamic, server-side content generation 
+2. Must have some way of engaging in public discussion
+3. Must support searching
+4. Must support tagging
+5. Must generate a feed of some type, probably RSS
+
+First, let's talk about the tool chain. I love programming languages.
+When I'm tinkering, I like to use languages that don't always make it
+into my professional life. For this website, I wanted to use Python for
+everything and that naturally lead me to
+[Jinja2](http://jinja.pocoo.org/) for a templating system as the basis
+for my HTML generation.
+
+Templating
+----------
+Jinja2 is neat. The template syntax follows that of
+[Django's](http://www.djangoproject.com/) lovely syntax, in fact the
+original hack of this site was written using Django's template system by
+itself and I was able to switch to Jinja2 with only one or two minor
+modifications. Template inheritance, filters, and blocks make putting
+together something like FITNR a piece of cake.
+
+Editing
+-------
+When it comes to authoring the content I really only need (or want) one
+thing: [vim](http://www.vim.org). Jinja2 continued to fulfill it's
+promise of sweetness by already having a vim syntax definition for their
+templating. 
+
+1. Launch vim
+2. `set ft=htmljinja` ... sweet colors, nice
+3. Profit?
+
+Of course, the actual articles are written using
+[Markdown](http://daringfireball.net/projects/markdown/) and there is
+vim a syntax definition for it as well. Finally, I integrated
+[SmartyPants](http://daringfireball.net/projects/smartypants/) to add a
+bit of flare to my web typography. Luckily, for both of these bits there
+are nice Python libraries[^py-mkd-sp] that do the heavy lifting.
+
+![Editing a FITNR Page](/fitnr-edit.gif "Editing a FITNR Page")
+
+Revision Control
+----------------
+Revision control was simple: everything lives in
+[Subversion](http://subversion.tigris.org). 
+
+    > svn co http://svn.fitnr.com/fitnr
+
+It turns out, what I really wanted was to be true to the Unix
+philosophy, partially shown below (courtesy of
+[Wikipedia](http://en.wikipedia.org/wiki/Unix_philosophy)):
+
+>Write programs that do one thing and do it well.
+>Write programs to work together.
+>Write programs to handle text streams.
+
+This was my primary requirement, and I had to be able to wire it all up
+with Python easily. No monolithic tools here, thank you very much!
+
+How it Works
+------------
+It all turned out quite nice, actually. I have a basic site structure as
+follows:
+
+    fitnr/
+        assets/
+        content/
+        pages/
+        templates/
+
+The directory structure provides a nice segmentation of the various
+inputs required to make the site happen:
+
+* assets -- Javascript, stylesheets, images, etc.
+* content -- articles that will be published, many of which currently
+  sit in an unfinished state
+* pages -- the actual site structure, built with static html and
+  Jinja2 templates, including my [feed](/feeds/)
+* templates -- common layouts and designs written in Jinja2's template
+  language
+
+When I want to start working on a new article I create a file in the
+`content` directory. This file has a simplistic structure: a series of
+faux email-style headers that define meta-data, followed by an empty
+line, followed by the actual content written in Markdown syntax.
+
+The files in the `pages` directory use the data from the `content`
+directory to render the site. Each page can be a Jinja2 template and can
+generate any content I wish. For example, I have a page that actually
+generates my feed for me.
+
+I have two simple Python programs. One is called `makeit.py` that 111
+lines of code, including comments, that does the following:
+
+1. Recurse into the `content` directory and parse each of the posts.
+2. Recurse into the `pages` directory and pass each page to Jinja2 for
+   template processing.
+3. Jinja2 processes the template, and loads any required parent
+   templates from the `templates` directory as they are needed.
+4. Copies the files from the `assets` folder into a build directory.
+5. Saves each of the rendered pages into the build directory.
+
+The other Python script is a simple web server that uses
+`SimpleHTTPServer` from Python's standard library. It's all of 21 lines
+of code and allows me to preview the site before publishing.
+
+So how did I do against my original goals?
+
+1. No dynamic, server-side content generation -- &#10004; No problems
+   here, everything is static
+2. Must have some way of engaging in public discussion -- &#10004; I
+   sort of cheated on this, but only sort of. I created a Google Group
+   called [fitnr-discuss](http://groups.google.com/group/fitnr-discuss)
+   that you can join if you'd like to discuss what you see on this site.
+3. Must support searching -- Not yet
+4. Must support tagging -- Not yet
+5. Must generate a feed of some type, probably RSS -- &#10004; I
+generate an RSS v2 feed [here](/feeds/rss.xml)
+
+There are quite a few things I'd like to add to the site in the future,
+but first I need to complete the tagging and searching functionality.
+For tagging I just need to code up the views that I'd like to expose,
+and for searching it's a matter of reading some Google API
+documentation.
+
+There are some other obvious things that need to be done sooner rather
+than later, most notable I need to finish the archive functionality so
+that each post gets a permanent link.
+
+[^py-mkd-sp]: 
+    [Markdown in Python](http://www.freewisdom.org/projects/python-markdown)
+    and [smartypants.py](http://web.chad.org/projects/smartypants.py/)
+
+[^server-side]: 
+    You'll have to forgive me a little bit here. Of course I understand
+    that *somewhere* on the Internet will be a server side component. I
+    just don't want to host it.
+
+[^tinkering]: 
+    This goes for any profession, really. It's the desire to learn
+    beyond one's standard job function that, in my opinion, typically
+    separates the cream of the crop when observing practitioners of any
+    trade or function.
+
+[mashups]: http://en.wikipedia.org/wiki/Mashup_(web_application_hybrid)
+

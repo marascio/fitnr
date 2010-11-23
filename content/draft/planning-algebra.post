@@ -1,0 +1,173 @@
+title     : Planning Algebra
+tags      : software, teams, trust          
+created   : Tue, 27 May 2008 10:00:00 -0500
+published : 
+revised   :
+
+One of the things that surprised me the most about my [previous
+employer](http://www.cisco.com) was how poorly the various engineering
+programs were planned. There were programs undergoing planning when I
+left at the end of 2008 that had started the planning process *before* I
+arrived in 2006 with the acquisition of Metreos. Absolutely amazing.
+
+I'd go so far as to say the majority of software teams out there (mine
+included) absolutely suck at planning. When we do try to plan, our
+conclusions are almost always wrong. 
+
+Why is planning software programs so challenging for us?
+
+The Ludic Fallacy[^1]
+---------------------
+
+[Nassim Nicholas
+Taleb](http://en.wikipedia.org/wiki/Nassim_Nicholas_Taleb) is a well
+known author with a tendency for kicking the established financial
+industry in the rear end. Taleb coined the term [Ludic
+Fallacy](http://en.wikipedia.org/wiki/Ludic_fallacy) to characterise
+what he believes to be a misuse of mathematical models to predict the
+future in the financial industry. A layman's summary of Taleb's Ludic
+Fallacy would go something like this: it is impossible to include all
+possible information into these predictive models, and for the
+characteristics that have been modeled it is usually true that very
+small variations in the data can have extreme effects. For most
+financial models this seems to be true, especially given the recent
+market disaster.
+
+There are many reasons why software teams, especially those in large
+organizations, plan the way they do. However, in my opinion, one of the
+root causes to their planning nightmare is a broken trust cycle. It's
+usually easy to recognize this problem when it is present.
+
+In every project there are three key players: management, marketing, and
+engineering. The engineers typically distrust marketing due to the
+belief that marketing will always try to shift, adjust, and sneak in
+requirements. Marketing, on the other hand, always wants more than what
+the engineers are willing to sign up to and usually think that the
+risk/reward decisions made by engineering are flawed. Finally,
+management thinks marketing is crazy for how they are prioritize the
+products features (after all, why isn't feature X, the one management
+thought of 6 months ago, included!?), and they are tired of hearing
+excuses as to why the engineers are always late.
+
+Everywhere the team goes, they find themselves sinking into the stinky
+depths of failure. In these situations, most teams try to plan more and
+plan harder. Management demands detailed estimates--after all, they want
+to be able to hold engineering's feet to the fire when they fail to
+deliver. Marketing demands more features and the release grows larger
+since they know there won't be another opportunity to get functionality
+into the product for years. Finally, engineering demands more of
+everything: more detail in the requirements, more people to write code,
+more tools to increase productivity, etc. The result of this is a
+planning morass. 
+  
+Planning Algebra
+----------------
+
+What ensues is a game of Planning Algebra. This cycle is very
+destructive and it is a direct result of the lack of trust between the
+stakeholders. It goes something like this:
+
+1. Management demands that engineering provide extremely detailed
+   estimates. Usually this is done with little hope of having anywhere
+   near the visibility into the program to do so. Sometimes it is
+   requested years ahead of delivery.
+
+2. Engineering freaks out, demands that marketing provide more detailed
+   requirements. This is, quite often, a delaying tactic. Engineering
+   leadership usually has a good idea as to what needs to be delivered
+   and a gut estimate; however, they're scared: management wants
+   *detailed* estimates and the engineers know why. It's because
+   management wants to hold them accountable for delivery dates.
+
+3. Marketing writes a bunch of requirements, usually bloating the list
+   dramatically because they know that they won't get another shot at
+   getting features into the product and they fear that they might
+   forget something. If they forget something, and the engineers don't
+   estimate it, then management will have their butts and the engineers
+   will hold them ransom.
+
+4. Requirements roll down, specifications get written, estimates get
+   made (with extreme padding), a Big Spreadsheet is created, and a date
+   is predicted. This happens over the course of months, causing grief
+   and frustration among everyone involved: from the line engineer to
+   the big boss manager. The result of the planning is: the software
+   will ship in 7.3 years.
+
+5. Management freaks out. How on earth could it take so long to deliver
+   such a simple product. Engineering crosses their arms in a defiant,
+   "the numbers don't lie move" (this is a bluff).
+
+6. Management, marketing, and engineering take the Big Spreadsheet and
+   begin to shift numbers around. Numbers are taken from column A and
+   placed in column B, synergies are found. The estimate comes down to 6
+   months. Management declares success, and moves on: business school
+   has triumphed once again. Engineering walks away knowing it is
+   impossible.
+
+Planning Algebra is the false belief that you can somehow treat a
+planning spreadsheet as if it were an algebraic equation. Software
+development is much to fuzzy for that kind of precision, it just does
+not work in reality. There is no fundamental disassociative property
+about a planning spreadsheet. Just because you subtract one "resource"
+from feature A, doesn't mean you can add that "resource" to feature B
+without loss. People don't work that way.
+
+This is a nightmare. Sometimes the process repeats itself several times
+over. I've witnessed it last for *over a year*. Holy cow, this is not
+how I want to be spending my professional career.
+
+Without trust it is impossible to optimize the release cycle. Everyone
+is covering their ass the entire time. One of the more head scratching
+things that happens during Planning Algebra is anchoring[^2]. You see,
+early on, somewhere between step #2 and #3, management will demand an
+update on the date. With this stick, marketing will pin down engineering
+and demand a rough estimate. This happened to me, and it went something
+like this:
+
+Marketing, "I'm sending you a spreadsheet, can you fill in your
+estimates as best you can now. I have to give the executives an update."
+
+Me, "How can I do that, I'm still waiting on the requirements."
+
+Marketing, "Oh I know, and so do the executives. Don't worry, they know
+that this is a SWAG (Silly Wild Ass Guess)."
+
+Sigh, I give in, as do most engineering managers, and place my numbers in
+the spreadsheet. This is a major mistake because during step #6, these
+estimates will come back to haunt you. You see, marketing and management
+have anchored on engineering's original estimates even though they
+freely admit that the estimates were made prematurely. They demand from
+engineering an explanation for all of the SWAG estimates that have
+increased. Engineering grows more frustrated, and suspicion between the
+various groups intensifies.
+
+Avoidance
+---------
+
+Don't let this happen to you. It isn't fun and it will invariably lead
+to poor performance from an organizational standpoint.
+
+Finding yourself in an established organization with this type of
+culture is disheartening. It is highly unlikely that you will be able to
+change the way the beast works, even if you're the one in charge. This
+type of mistrust runs deep, and from what I've seen it usually requires
+a wholesale reboot of the team. 
+
+If you're building a team instill trust from the beginning. Make sure
+that as you grow your team trust boundaries are properly expanded to
+include new team members. Most of all, realize and accept that you don't
+have control. All you can do is push the team in the right direction,
+helping them find their way. The team will perform based on the sum of
+its parts, and the team will deliver based on its performance. There is
+no amount of whip lashing or Planning Algebra that you can do to change
+that. Trust the team, empower them to trust themselves and their
+colleagues, and then challenge them to perform at their peek.
+
+[^1]: 
+    See [Nassim Nicholas Taleb](http://www.fooledbyrandomnes/) and his
+    [Ludic Fallacy](http://www.http://en.wikipedia.org/wiki/Ludic_fallacy) 
+
+[^2]: 
+    A human tendency to rely on information already known or estimated.
+    See [Anchoring](http://en.wikipedia.org/wiki/Anchoring)
+

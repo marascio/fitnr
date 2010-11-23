@@ -1,0 +1,11 @@
+{% extends 'main.tmpl' %}
+{% import 'blogpost.tmpl' as blog %}
+
+{% block mainpanel %}
+  <h1>Embargo</h1><br />
+  {% for post in embargo %}
+
+  {{ blog.blogitem(post, loop.last) }}
+
+  {% endfor %}
+{% endblock %}

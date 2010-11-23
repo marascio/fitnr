@@ -1,0 +1,141 @@
+title     : That's a Dilly of a Pickle
+tags      : programming, debugging, metreos, ohshit
+created   : Mon, 14 Jul 2008 14:43:26 -0500
+published : Fri, 26 Sep 2008 14:18:39 -0500
+revised   :
+
+We've all had that moment. You know the feeling, your stomach falls out
+from under you, your legs go a bit wobbly, or your gut climbs into your
+throat. It's an "Oh Shit" moment.
+
+Lot's of times this happens under relatively benign circumstances. Maybe
+during a test cycle you realize you forgot some fundamental feature or
+missed a major requirement. No big deal: just adapt and overcome.
+However, there are times when those moments are particularly scary.
+
+Building software, especially software that has to integrate with other
+systems, should always breed a healthy dose of skepticism when
+diagnosing root cause. What I mean is, there is always a feeling that
+the problem might not be your own, but in reality, you must always
+assume that your software is creating the problem, even if it isn't
+convenient. Doing otherwise is trying to operate outside of your own
+sphere of influence: you have no control over the software you integrate
+with, therefore it is typically a [sisyphean
+task](http://en.wikipedia.org/wiki/Sisyphus) to start there in trying to
+resolve a problem.
+
+In the many years that I have been building the Metreos/Cisco product
+that I work on today I have found bugs in other people's software a mere
+fraction of the time when compared to my own. It is almost always my
+fault. I've also seen, over and over again, other engineers (some young,
+some old, I don't think it is related to your experience level) jump to
+the immediate conclusion that "it must be xyz in abc's product" thinking
+to themselves "there's no way it could be us". This is a horrible way to
+approach problem resolution and root cause identification.
+
+Those really nasty problems almost always happen under the umbrella of a
+customer found problem. So, coupled with the fact that you're already
+facing an "Oh Shit" moment you also have the added stress of knowing
+that the customer is expecting updates, information, and a fix as soon
+as possible. An engineer who worked for Metreos' first customer, and now
+a good friend, always had something funny to say in these situations:
+
+>That's a dilly of a pickle you've got there.
+
+That always made me laugh, but I think the thing that I appreciated
+about the relationship we had was that he always afforded us the space
+to work the issue in a logical, diligent, and direct manner. Getting
+yourself out of hairy spots is much easier when the customer is not
+being difficult.
+
+So, needless to say, I've faced my fair share of pickles over the years.
+I've built up a pretty standard method of analyzing and diagnosing the
+root cause of the problem. What surprises me is how people try to debug
+these complicated systems without such an approach. Much of the time you
+see engineers tossing darts in the dark, hoping to find a solution. The
+funny thing is, and I've seen this first hand as well, is that they
+might toss one of those darts and see the problem fixed. Unfortunately,
+without understanding the root cause they never really know whether the
+*real* problem is fixed or whether they've simply treated the symptom.
+
+Here's how I typically approach things:
+
+1. Ensure the problem has been reported properly and is being tracked
+   according to your process. *If the problem isn't being tracked you're
+   doing the customer a disservice. Make sure it's logged, has a
+   tracking number, and is visible on whatever process dashboard you
+   might have.*
+
+2. Confirm your understanding of the problem and formulate a set of
+   plausible causes, if possible. *It's sort of amazing how many times
+   you're initial understanding of the problem is adjacent to the
+   actual experience the customer is having. Take the time to reconfirm,
+   in painful detail, what's happening and what's expected to happen.*
+
+3. Analyze available data. If no data is available, ask for data that
+   might already be available by the customer. For example, your
+   standard set of logs that might be turned on in production. *Data is
+   critical. Without the data it's impossible to create a sound
+   hypothesis or confirm environmental events. Many times, people don't
+   get the data needed because they have some aversion to asking the
+   customer to do work in helping diagnose the situation. If you need
+   the customer to gather network traces from a specific port on a
+   specific switch, tell them so they can do it and get you what you
+   need.*
+
+4. Define a decision tree to isolate root cause. You may choose a
+   positive (rule in) or negative (rule out) approach. Typically the
+   approach you choose is based on your confidence level in plausible
+   root causes you've identified. *Much of the time, this is less formal
+   than it sounds and is driven from gut feel. If X happens then there
+   is no way the problem is A, but if we see Y then it might be B, etc.
+   The set of possible scenarios and ways those scenarios might be
+   confirmed or refuted is critical because it will push you in a
+   specific direction and tell you where you need to instrument your
+   system or what data you might need to gather.*
+
+5. Gather additional data required to walk your decision tree. *Again,
+   don't be afraid of asking your customer to do work here. They will
+   respect you for taking a disciplined approach to solving their
+   problem.*
+
+6. If you have reached a conclusion based on the decision tree and
+   gathered data, then you have isolated a plausible root cause.
+   Otherwise, go to step 3 and repeat. If you believe you have
+   misunderstood the problem or are no longer able to formulate a
+   decision matrix, go to step 2 and ensure you are not in the weeds.
+   *You should end up in a situation that the data has shown you where
+   the problem is, and you are able to confirm the fix works by turning
+   it on or turning it off. Not all problems are as cut and dry, but
+   many are.*
+
+Customers respect this approach. In fact, you can make customers love
+you for following a disciplined, data driven problem solving approach
+like the one above. A couple of words of wisdom (yes, I said wisdom,
+does that make me full of myself?):
+
+1. Make sure they know that you're in control and are on top of the
+   problem. 
+   
+2. Make sure they know what the next steps are.
+
+3. Don't be afraid of telling them bad news. 
+
+4. Be honest, clear, and direct with the customer. 
+
+There is nothing worse than a waffling, weak engineer on the other end
+of the line when a major customer problem is in progress.
+
+We had no choice but to follow an approach like this at Metreos, and now
+at Cisco. The system that we have to diagnose is huge, and problems can
+be caused by everything from a faulty network element to bad software.
+
+Perhaps the nastiest issue that we had at Metreos was one that was
+caused by a firewall that would behave differently depending on the
+order in which specific UDP packets were received. We solved this by
+having the customer take network traces from various points in the
+network, making sure we had clear good and bad case examples, and doing
+some good old fashioned detective work. It was stressful, but quite fun
+and fulfilling once we were able to show root cause. And best of all, in
+this specific scenario it wasn't our bug.
+

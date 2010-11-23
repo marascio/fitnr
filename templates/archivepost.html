@@ -1,0 +1,6 @@
+{% extends 'main.tmpl' %}
+{% import 'blogpost.tmpl' as blog %}
+
+{% block mainpanel %}
+  {{ blog.blogitem(post, true, published) }}
+{% endblock %}

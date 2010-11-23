@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+  <channel>
+    <title>Fixed In The Next Release</title>
+    <link>http://www.fitnr.com/</link>
+    <description>Thoughts on software development, software teams, and
+      entrepreneurship.</description>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 May 2008 12:00:00 GMT</lastBuildDate>
+    <docs>http://cyber.law.harvard.edu/rss/rss.html</docs>
+    <webMaster>webmaster@fitnr.com</webMaster>
+    <ttl>60</ttl>
+ 
+    <item>
+      <title>Better Late than Never, I Suppose</title>
+      <link>http://www.fitnr.com/archives/2008/05/better-late-than-never.html</link>
+      <description>
+        <![CDATA[
+          <p>Well, I suppose it's time. I've avoided jumping online with
+          an official-like presence for long enough. At this point I
+          feel like the guy in the 90's who was still using a Walkman
+          listening to cassette tapes.</p>
+
+          <p>What will you find here? Mostly a discussion on software
+          development, software teams, and other related technical bits
+          and pieces. You'll find a healthy dose of cynicism and
+          pragmatism in my viewpoints, but more importantly I hope
+          there is a fair bit of humor.</p>
+        ]]>
+      </description>
+      <pubDate>Thu, 22 May 2008 12:00:00 GMT</pubDate>
+      <guid>http://www.fitnr.com/archives/2008/05/better-late-than-never.html</guid>
+    </item>
+  </channel>
+</rss>
+
