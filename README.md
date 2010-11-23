@@ -5,6 +5,12 @@ This is the entire [Fixed in the Next Release](http://fitnr.com) (FITNR)
 website. It contains all of the content and code to generate the static
 website.
 
+About
+=====
+
+The FITNR website is built using the [nanoc](http://nanoc.stoneship.org)
+static site generator.
+
 Copyright
 =========
 
