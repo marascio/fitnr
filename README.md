@@ -5,6 +5,12 @@ This is the entire [Fixed in the Next Release](http://fitnr.com) (FITNR)
 website. It contains all of the content and code to generate the static
 website.
 
+About
+=====
+
+The FITNR website is a static only website built using a combination of
+[Jinja2](http://jinja.pocoo.org) templates and custom Python code.
+
 Copyright
 =========
 
